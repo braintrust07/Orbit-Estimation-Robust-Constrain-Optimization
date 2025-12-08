@@ -77,7 +77,7 @@ The application automatically computes and displays:
 ---
 
 ## 6. Recommended Folder Structure
-<img width="579" height="130" alt="image" src="https://github.com/user-attachments/assets/25b4feac-5dd2-4151-9ba8-a2c8300f2f42" />
+<img width="221" height="110" alt="image" src="https://github.com/user-attachments/assets/f6110672-13a1-4d34-8f56-615911609c1e" />
 ---
 
 ## 7. Installation

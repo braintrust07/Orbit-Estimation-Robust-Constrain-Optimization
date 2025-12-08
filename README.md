@@ -77,14 +77,7 @@ The application automatically computes and displays:
 ---
 
 ## 6. Recommended Folder Structure
-
-
-├─ streamlit_orbit_gui.py
-├─ README.md
-├─ /results        (optional — for saved visualizations and metrics)
-└─ /samples        (optional — for example NPZ orbit data)
-
-
+<img width="579" height="130" alt="image" src="https://github.com/user-attachments/assets/25b4feac-5dd2-4151-9ba8-a2c8300f2f42" />
 ---
 
 ## 7. Installation

@@ -1,134 +1,154 @@
-Orbit Estimation Dashboard — EKF vs RCO
+Below is a polished *README.md* formatted properly for GitHub, based on the information you provided.
+No emojis are included.
 
-This project is an interactive Streamlit-based dashboard that compares two different orbit estimation approaches:
+---
 
-* Extended Kalman-like Filter (EKF)
-* Robust Constrained Optimizer (RCO) using IRLS + Huber Loss
+# Orbit Estimation Dashboard — EKF vs RCO
 
-The app simulates orbital motion, injects sensor noise, outliers, and optional mid-orbit maneuvers, and evaluates how well each filtering method reconstructs the true trajectory.
+## 1. Overview
 
-Key Features
+This project presents an interactive *Streamlit-based dashboard* for comparative orbit estimation using two different reconstruction approaches:
 
-Orbit simulation with configurable time steps & dynamics
+* *Extended Kalman-like Filter (EKF)*
+* *Robust Constrained Optimizer (RCO)* using IRLS with Huber Loss
 
-Measurement noise, outliers, and maneuver injection
+The dashboard simulates orbital motion, injects sensor noise, outliers, and optional mid-orbit maneuvers, and evaluates how effectively each filtering method reconstructs the true trajectory. The interface provides interactive visualizations, diagnostic tools, and export options for detailed analysis.
 
-EKF and RCO estimation pipelines with adjustable tuning parameters
+---
 
-Interactive visualizations
+## 2. Key Features
 
-3D orbit plots
+* Orbit simulation with configurable time steps and orbital dynamics
+* Measurement noise, outlier injection, and optional maneuver modeling
+* EKF and RCO estimation pipelines with adjustable tuning parameters
+* Real-time interactive plots and diagnostics
+* 3D orbit visualization
+* Step-wise position error graphs
+* Runtime comparison bar charts
+* Huber weight diagnostics for RCO
+* Result export options
 
-Step-wise position error plots
+  * RMSE summary CSV
+  * Trajectory arrays (NPZ)
+  * PNG figure downloads
+* Built-in NPZ viewer to inspect saved results
 
-Runtime comparison bar chart
+---
 
-Huber weight diagnostics
+## 3. Demo
 
-Data export
+To launch the dashboard:
 
-Summary metrics CSV
-
-Orbit arrays NPZ
-
-PNG figure downloads
-
-Built-in NPZ Viewer to inspect saved results
-
-Demo
-
-Run the dashboard with:
 
 streamlit run streamlit_orbit_gui.py
 
 
-Make sure the required libraries are installed (see below).
+Make sure required dependencies are installed before running.
 
-Sidebar Controls & Inputs
+---
 
-You can freely configure:
+## 4. Sidebar Controls and Inputs
 
-Category	Parameters
-Simulation	Time steps, Δt
-Noise	Measurement σ, outlier fraction, outlier σ
-Maneuver	Enable/disable, displacement
-RCO	λ smoothing, Huber delta, max iterations
-EKF	P0, Q, R scaling
-Runtime	Number of timing repetitions
-Misc	Random seed
-Output Metrics
+Users can freely configure:
 
-The app automatically computes and displays:
+| Category   | Parameters                                 |
+| ---------- | ------------------------------------------ |
+| Simulation | Time steps, Δt                             |
+| Noise      | Measurement σ, outlier fraction, outlier σ |
+| Maneuver   | Enable/disable, displacement magnitude     |
+| RCO        | λ smoothing, Huber delta, max iterations   |
+| EKF        | P0, Q, R scaling                           |
+| Runtime    | Number of timing repetitions               |
+| Misc       | Random seed                                |
 
-RMSE of EKF vs RCO for outlier and maneuver cases
+---
 
-Average runtime for both filters
+## 5. Output Metrics
 
-Interactive plots and downloadable visualizations
+The application automatically computes and displays:
 
-Folder Structure (recommended)
+* RMSE comparisons of EKF vs RCO under:
+
+  * Outlier conditions
+  * Maneuver conditions
+* Average runtime for both filters
+* Interactive and downloadable visualizations
+
+---
+
+## 6. Recommended Folder Structure
+
+
 ├─ streamlit_orbit_gui.py
 ├─ README.md
-├─ /results (optional for saved visualizations)
-└─ /samples (optional for NPZ examples)
+├─ /results        (optional — for saved visualizations and metrics)
+└─ /samples        (optional — for example NPZ orbit data)
 
-Installation
+
+---
+
+## 7. Installation
+
+Required packages:
+
+
 pip install streamlit numpy matplotlib
 
 
-(Optional for development: csv, io, datetime, os — these are built-ins)
+(Optional built-in imports for development: csv, io, datetime, os)
 
-How It Works (Conceptual)
-Component	Description
-Orbit generator	Creates a synthetic near-circular orbit with a small Z variation
-Noise model	Adds Gaussian measurement noise; optional outliers
-Maneuver model	Abrupt mid-trajectory displacement
-EKF	Conventional recursive Bayesian position filter
-RCO	Iteratively reweighted least squares + Huber to suppress outliers
-Code Origin
+---
 
-The application is implemented fully in streamlit_orbit_gui.py and includes:
+## 8. How It Works (Conceptual Overview)
 
-Orbit simulation
+| Component       | Description                                                            |
+| --------------- | ---------------------------------------------------------------------- |
+| Orbit generator | Produces synthetic near-circular orbit with slight Z-axis variation    |
+| Noise model     | Adds Gaussian measurement noise and optional outliers                  |
+| Maneuver model  | Injects abrupt mid-trajectory displacement                             |
+| EKF             | Recursive Bayesian estimator for position tracking                     |
+| RCO             | Iteratively Reweighted Least Squares + Huber Loss to suppress outliers |
 
-Measurement model
+---
 
-EKF implementation
+## 9. Code Origin
 
-RCO implementation (IRLS + Huber)
+All logic is implemented within:
 
-Streamlit UI and visualization logic
 
-Code reference: streamlit_orbit_gui.py 
+streamlit_orbit_gui.py
 
-streamlit_orbit_gui
 
-Purpose
+This includes:
 
-This dashboard provides a clear, practical way to analyze and visualize the robustness of filtering methods in the presence of:
+* Orbit simulation
+* Measurement model
+* EKF implementation
+* RCO implementation (Huber + IRLS)
+* Streamlit UI and visualization pipeline
 
-Gaussian noise
+---
 
-Severe outliers
+## 10. Purpose
 
-Orbital maneuvers / sudden trajectory changes
+This dashboard provides a clear, practical environment to study the robustness of orbit estimation algorithms in the presence of:
 
-It can be useful for:
+* Gaussian noise
+* Strong measurement outliers
+* Sudden trajectory changes (maneuvers)
 
-Aerospace research
+It is useful for:
 
-Sensor fusion & tracking projects
+* Aerospace and orbital tracking research
+* Sensor fusion projects
+* Robust estimation studies
+* Optimization and filtering comparisons
 
-Robust estimation studies
+---
 
-ML/optimization comparisons
+## 11. License
 
-License
+This project may be used and modified for educational and research purposes.
+If you use this work in publications or academic submissions, attribution is appreciated.
 
-Feel free to use and modify this project for research or educational purposes.
-If you share or publish work based on it, giving credit would be appreciated ❤️.
-
-Contributions
-
-Suggestions and improvements are welcome!
-Open a pull request or create an issue if you'd like to collaborate.
+---
